@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,10 @@ namespace C_1_base
     public static class YourTasksHere
     {
 
+        public static void Main()
+        {
+            //Console.WriteLine(SquerOfTrungle(1, 3));
+        }
 
         #region Задача 1
         /*
@@ -17,6 +21,8 @@ namespace C_1_base
 
         public static double SquerOfTrungle(uint a, uint b)
         {
+            return a*b/2.0;
+
             throw new NotImplementedException();
         }
         #endregion
@@ -31,6 +37,13 @@ namespace C_1_base
 
         public static bool isTrungle(uint a, uint b, uint c)
         {
+            if((a+b > c)&&(a+c > b)&&(c+b > a))
+            {
+               return true;
+            } else 
+            {
+               return false;
+            }
             throw new NotImplementedException();
         }
         #endregion
@@ -43,6 +56,15 @@ namespace C_1_base
 
         public static int Arifmetika(int a, int b)
         {
+            if(a*b >=0)
+            {
+                return a+b;
+            } else
+            {
+                return Math.Abs(a-b);
+            }
+
+
             throw new NotImplementedException();
         }
         #endregion
@@ -55,6 +77,9 @@ namespace C_1_base
 
         public static int Fuc(int a)
         {
+            if (a==1)
+                return 1;
+            return a*Fuc(a-1);
             throw new NotImplementedException();
         }
         #endregion
@@ -67,6 +92,12 @@ namespace C_1_base
 
         public static int[] ArrayCreate(int n)
         {
+            int[] Arr = new int[n];
+            for(int i = 0; i < n; i++)
+            {
+                Arr[i] = n-i;
+            }
+            return Arr;
             throw new NotImplementedException();
         }
         #endregion
@@ -79,7 +110,20 @@ namespace C_1_base
 
         public static int MaxSearch(int[] array)
         {
-            throw new NotImplementedException();
+            int max = array[0];
+            for(int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                    max = array[i];
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == max)
+                {
+                    return i;
+                }
+            }
+                throw new NotImplementedException();
         }
         #endregion
 
@@ -91,6 +135,12 @@ namespace C_1_base
 
         public static int[] ArrayCopy(int[] array)
         {
+            int[] arr = new int[array.Length];
+            for(int i = 0; i < array.Length; i++)
+            {
+                arr[i] = array[i];
+            }
+            return arr;
             throw new NotImplementedException();
         }
         #endregion
@@ -103,6 +153,11 @@ namespace C_1_base
 
         public static int Fibonachi(int n)
         {
+            if (n == 1)
+                return 1;
+            if (n ==2)
+                return 2;
+            return Fibonachi(n-1) + Fibonachi(n-2);
             throw new NotImplementedException();
         }
         #endregion
@@ -116,6 +171,22 @@ namespace C_1_base
 
         public static int HardArray(int[] intput, out int[] output)
         {
+            int max = intput[0];
+            for (int i = 1; i < intput.Length; i++)
+            {
+                if (intput[i] > max)
+                    max = intput[i];
+
+            }
+
+            output = new int[intput.Length];
+            
+            for (int i = 0; i < intput.Length; i++)
+            {
+                output[i] = intput[i];
+            }
+
+            return max;
             throw new NotImplementedException();
         }
         #endregion
@@ -131,6 +202,12 @@ namespace C_1_base
 
         public static void Fight(ref int health1, int power1, ref int health2, int power2)
         {
+            while((health1 > 0)&&(health2 > 0))
+            {
+                health1-= power2;
+                health2-= power1;
+            }
+            return;
             throw new NotImplementedException();
         }
         #endregion
